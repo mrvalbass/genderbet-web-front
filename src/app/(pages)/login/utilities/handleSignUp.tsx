@@ -4,7 +4,8 @@ export default async function handleSignUp(
   router: AppRouterInstance,
   name: string,
   signUpEmail: string,
-  signUpPassword: string
+  signUpPassword: string,
+  updateUser: (token: string | null) => void
 ) {
   const options = {
     method: "post",
@@ -22,7 +23,7 @@ export default async function handleSignUp(
   ).then((r) => r.json());
 
   if (response.result) {
-    localStorage.setItem("token", response.user.token);
+    updateUser(response.user.token);
     router.replace("/");
   } else {
     const errorMessage = [];

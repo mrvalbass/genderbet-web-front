@@ -16,6 +16,8 @@ const config: Config = {
         genderBackground: "url('/boy-vs-girl.jpeg')",
         dateBackground: "url('/date-background.jpeg')",
         firstNameBackground: "url('/firstname-background.jpeg')",
+        boyBackground: "url('/boy.jpeg')",
+        girlBackground: "url('/girl.jpeg')",
       },
       fontFamily: {
         BabyFont: ["Edu AU VIC WA NT Hand", "serif"],

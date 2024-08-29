@@ -1,13 +1,15 @@
-import handleSignUp from "@/app/login/utilities/handleSignUp";
+import handleSignUp from "@/app/(pages)/login/utilities/handleSignUp";
 import ConnexionButton from "./ConnexionButton";
-import TextInput from "../../components/TextInput";
-import { useState } from "react";
+import TextInput from "../../../components/TextInput";
+import { useContext, useState } from "react";
 import { useRouter } from "next/navigation";
+import UserContext from "@/app/context/UserContext";
 
 export default function SignUpForm() {
   const [name, setName] = useState<string>("");
   const [signUpEmail, setSignUpEmail] = useState<string>("");
   const [signUpPassword, setSignUpPassword] = useState<string>("");
+  const { updateUser } = useContext(UserContext);
   const router = useRouter();
 
   return (
@@ -15,7 +17,7 @@ export default function SignUpForm() {
       className="flex flex-col justify-between gap-3 px-10 md:py-10"
       onSubmit={(e) => {
         e.preventDefault();
-        handleSignUp(router, name, signUpEmail, signUpPassword);
+        handleSignUp(router, name, signUpEmail, signUpPassword, updateUser);
       }}
     >
       <p className="text-center font-bold text-lg">Première connexion</p>

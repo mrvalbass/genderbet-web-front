@@ -3,7 +3,8 @@ import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.share
 export default async function handleSignIn(
   router: AppRouterInstance,
   signInEmail: string,
-  signInPassword: string
+  signInPassword: string,
+  updateUser: (token: string | null) => void
 ) {
   const options = {
     method: "post",
@@ -20,7 +21,7 @@ export default async function handleSignIn(
   ).then((r) => r.json());
 
   if (response.result) {
-    localStorage.setItem("token", response.user.token);
+    updateUser(response.user.token);
     router.replace("/");
   } else {
     const errorMessage = [];

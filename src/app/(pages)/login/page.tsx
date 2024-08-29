@@ -1,9 +1,9 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
 import Image from "next/image";
-import LoginCard from "@/app/login/components/LoginCard";
+import { useGSAP } from "@gsap/react";
 import animation from "./utilities/animation";
+import LoginCard from "@/app/(pages)/login/components/LoginCard";
 
 export default function Login() {
   useGSAP(animation);

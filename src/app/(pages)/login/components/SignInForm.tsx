@@ -1,12 +1,14 @@
-import { useState } from "react";
-import handleSignIn from "@/app/login/utilities/handleSignIn";
-import TextInput from "../../components/TextInput";
+import { useContext, useState } from "react";
+import handleSignIn from "@/app/(pages)/login/utilities/handleSignIn";
+import TextInput from "../../../components/TextInput";
 import ConnexionButton from "./ConnexionButton";
 import { useRouter } from "next/navigation";
+import UserContext from "@/app/context/UserContext";
 
 export default function SignInForm() {
   const [signInEmail, setSignInEmail] = useState<string>("");
   const [signInPassword, setSignInPassword] = useState<string>("");
+  const { updateUser } = useContext(UserContext);
   const router = useRouter();
 
   return (
@@ -14,7 +16,7 @@ export default function SignInForm() {
       className="flex flex-col justify-between gap-3 px-10 md:py-10"
       onSubmit={(e) => {
         e.preventDefault();
-        handleSignIn(router, signInEmail, signInPassword);
+        handleSignIn(router, signInEmail, signInPassword, updateUser);
       }}
     >
       <p className="text-center font-bold text-lg">Se connecter</p>
