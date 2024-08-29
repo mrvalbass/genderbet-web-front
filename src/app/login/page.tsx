@@ -1,11 +1,12 @@
 "use client";
 
-import LoginCard from "@/components/LoginCard";
+import { useGSAP } from "@gsap/react";
 import Image from "next/image";
-import { useState } from "react";
+import LoginCard from "@/app/login/components/LoginCard";
+import animation from "./utilities/animation";
 
 export default function Login() {
-  const [rotationSpeed, setRotationSpeed] = useState<number>(16);
+  useGSAP(animation);
 
   return (
     <main className="bg-orange-100 flex min-h-screen flex-col items-center justify-center">
@@ -13,17 +14,12 @@ export default function Login() {
         Notre P'tit Bébé
       </h1>
       <Image
+        priority
         src="/baby-womb.png"
         width={300}
         height={300}
         alt="Baby in womb"
-        style={{ animation: `spin ${rotationSpeed}s linear infinite` }}
-        onClick={() =>
-          setRotationSpeed((prev) => {
-            if (prev > 1) return prev - 5;
-            else return 16;
-          })
-        }
+        className="baby-womb rounded-full"
       />
       <LoginCard />
     </main>

@@ -4,10 +4,10 @@ interface ConnexionButtonProps {
 
 export default function ConnexionButton({ className }: ConnexionButtonProps) {
   return (
-    <button
+    <input
       className={`bg-[#ef7c51] rounded font-bold text-orange-100 py-1 ${className}`}
-    >
-      Connexion
-    </button>
+      type="submit"
+      value="Connexion"
+    />
   );
 }
