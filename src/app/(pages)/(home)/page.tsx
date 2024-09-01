@@ -19,7 +19,7 @@ export default function Home() {
   }, [loading]);
 
   const handleDisconnection = () => {
-    updateUser(localStorage.getItem("token"));
+    updateUser(null);
     router.replace("/login");
   };
 
@@ -29,13 +29,36 @@ export default function Home() {
       <main className="bg-orange-100 h-[90lvh] flex flex-col items-center">
         <div className="flex flex-col justify-center items-center p-10 w-full grow max-w-[1250px] gap-10">
           <div className="flex flex-col md:flex-row justify-center items-center md:gap-5 gap-10 w-full basis-3/4">
-            <MenuCard className="bg-genderBackground" href="/gender">
+            <MenuCard
+              className="bg-genderBackground"
+              href="/gender"
+              prediction={user.predictions.gender}
+            >
               Sexe
             </MenuCard>
-            <MenuCard className="bg-firstNameBackground" href="/firstname">
+            <MenuCard
+              className="bg-firstNameBackground"
+              href="/firstname"
+              prediction={
+                <>
+                  <br />
+                  <span>{`♂ : ${user.predictions.firstName.boy
+                    .filter((name) => !!name)
+                    .join(", ")}`}</span>
+                  <br />
+                  <span>{`♀ : ${user.predictions.firstName.girl
+                    .filter((name) => !!name)
+                    .join(", ")}`}</span>
+                </>
+              }
+            >
               Prénom
             </MenuCard>
-            <MenuCard className="bg-dateBackground" href="/birthday">
+            <MenuCard
+              className="bg-dateBackground"
+              href="/birthday"
+              prediction={""}
+            >
               Date
             </MenuCard>
           </div>

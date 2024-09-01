@@ -2,20 +2,60 @@
 
 import { createContext, useEffect, useState } from "react";
 
-const UserContext = createContext({
-  user: { name: "", email: "", _id: "" },
-  loading: true,
-  updateUser: (token: string | null) => {},
-});
+export interface FirstNameInterface {
+  boy: string[];
+  girl: string[];
+}
 
-export default UserContext;
+export interface PredictionsInterface {
+  gender: "♂" | "♀" | null;
+  firstName: FirstNameInterface;
+  birthDay: Date;
+}
+
+export interface UserInterface {
+  name: string;
+  email: string;
+  token: string;
+  _id: string;
+  predictions: PredictionsInterface;
+}
+
+export interface UserContextValues {
+  user: UserInterface;
+  loading: boolean;
+  updateUser: (token: string | null) => void;
+}
 
 interface UserContextProviderProps {
   children: React.ReactElement;
 }
+const defaultUser = {
+  name: "",
+  email: "",
+  token: "",
+  _id: "",
+  predictions: {
+    gender: null,
+    firstName: {
+      boy: ["", "", ""],
+      girl: ["", "", ""],
+    },
+    birthDay: new Date(2024, 11, 26),
+  },
+};
+
+const UserContext = createContext<UserContextValues>({
+  user: defaultUser,
+  loading: true,
+  updateUser: (_: string | null) => {},
+});
+
+export default UserContext;
+
 export function UserContextProvider({ children }: UserContextProviderProps) {
   const [loading, setLoading] = useState<boolean>(true);
-  const [user, setUser] = useState({ name: "", email: "", _id: "" });
+  const [user, setUser] = useState<UserInterface>(defaultUser);
 
   function updateUser(token: string | null) {
     token
@@ -33,7 +73,7 @@ export function UserContextProvider({ children }: UserContextProviderProps) {
         );
         setUser(data.user);
       } else {
-        setUser({ name: "", email: "", _id: "" });
+        setUser(defaultUser);
       }
       setLoading(false);
     };

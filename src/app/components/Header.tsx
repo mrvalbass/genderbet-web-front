@@ -15,7 +15,7 @@ export default function Header({ back }: HeaderProps) {
       {back && (
         <FontAwesomeIcon
           icon={faArrowLeft}
-          className="h-[5lvh] absolute left-10 cursor-pointer hover:scale-105 active:scale-95"
+          className=" h-[3lvh] md:h-[5lvh] absolute left-5 md:left-10 cursor-pointer hover:scale-105 active:scale-95"
           onClick={() => router.back()}
         />
       )}
