@@ -11,7 +11,7 @@ export interface FirstNameInterface {
 export interface PredictionsInterface {
   gender: "♂" | "♀" | null;
   firstName: FirstNameInterface;
-  birthDay: Dayjs;
+  birthDay: Dayjs | null;
 }
 
 export interface UserInterface {
@@ -42,7 +42,7 @@ const defaultUser = {
       boy: ["", "", ""],
       girl: ["", "", ""],
     },
-    birthDay: dayjs(new Date(2024, 11, 26)),
+    birthDay: null,
   },
 };
 
