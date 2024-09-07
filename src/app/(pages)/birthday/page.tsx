@@ -11,7 +11,11 @@ dayjs.locale("fr");
 
 export default function Birthday() {
   const { user } = useContext(UserContext);
-  const [date, setDate] = useState<Dayjs>(dayjs(user.predictions.birthDay));
+  const [date, setDate] = useState<Dayjs>(
+    user.predictions.birthDay
+      ? dayjs(user.predictions.birthDay)
+      : dayjs(new Date(2024, 11, 26))
+  );
 
   const handleDateChange = async (newDate: Dayjs) => {
     user.predictions.birthDay = newDate;

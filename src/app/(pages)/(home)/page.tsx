@@ -33,7 +33,9 @@ export default function Home() {
             <MenuCard
               className="bg-genderBackground"
               href="/gender"
-              prediction={user.predictions.gender}
+              prediction={
+                user.predictions.gender ? user.predictions.gender : ""
+              }
             >
               Sexe
             </MenuCard>
@@ -58,7 +60,11 @@ export default function Home() {
             <MenuCard
               className="bg-dateBackground"
               href="/birthday"
-              prediction={dayjs(user.predictions.birthDay).format("DD/MM/YYYY")}
+              prediction={
+                user.predictions.birthDay
+                  ? dayjs(user.predictions.birthDay).format("DD/MM/YYYY")
+                  : ""
+              }
             >
               Date
             </MenuCard>
