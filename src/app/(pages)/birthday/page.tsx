@@ -56,6 +56,12 @@ export default function Birthday() {
                 "&focus": {
                   backgroundColor: "#ef7c51",
                 },
+                "&active": {
+                  backgroundColor: "#ef7c51",
+                },
+                "&.Mui-focusVisible": {
+                  backgroundColor: "#ef7c51",
+                },
               },
               ".MuiPickersDay-root": {
                 fontWeight: "bold",
