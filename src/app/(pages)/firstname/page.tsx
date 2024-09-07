@@ -61,7 +61,7 @@ export default function FirstName() {
   return (
     <>
       <Header back />
-      <main className="h-[90lvh] bg-orange-100 flex flex-col items-center">
+      <main className="h-[90svh] bg-orange-100 flex flex-col items-center">
         <h1 className="text-4xl md:text-5xl font-[500] pt-5 md:pt-10 font-BabyFont text-center mx-10 leading-relaxed">
           Timéo, Brigitte, Maurice, Loula ...
         </h1>

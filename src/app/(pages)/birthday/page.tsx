@@ -33,7 +33,7 @@ export default function Birthday() {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="fr">
       <Header back />
-      <main className="h-[90lvh] bg-orange-100 flex flex-col items-center">
+      <main className="h-[90svh] bg-orange-100 flex flex-col items-center">
         <h1 className="text-4xl md:text-5xl font-[500] pt-5 md:pt-10 font-BabyFont text-center mx-10 leading-relaxed">
           Date estimée : <br />
           26 Décembre 2024
@@ -53,6 +53,12 @@ export default function Birthday() {
               ".MuiPickersDay-root.Mui-selected": {
                 backgroundColor: "#ef7c51",
                 color: "#ffedd5",
+                "&focus": {
+                  backgroundColor: "#ef7c51",
+                },
+              },
+              ".MuiPickersDay-root": {
+                fontWeight: "bold",
               },
             }}
           />

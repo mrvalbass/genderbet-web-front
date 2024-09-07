@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <>
       <Header back={false} />
-      <main className="bg-orange-100 h-[90lvh] flex flex-col items-center">
+      <main className="bg-orange-100 h-[90svh] flex flex-col items-center">
         <div className="flex flex-col justify-center items-center p-10 w-full grow max-w-[1250px] gap-10">
           <div className="flex flex-col md:flex-row justify-center items-center md:gap-5 gap-10 w-full basis-3/4">
             <MenuCard
