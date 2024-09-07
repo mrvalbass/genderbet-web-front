@@ -62,7 +62,11 @@ export default function Gender() {
                 className="bg-boyBackground"
                 onClick={() => setGender("♂")}
               />
-              <GenderCard clickable className="bg-girlBackground" />
+              <GenderCard
+                clickable
+                className="bg-girlBackground"
+                onClick={() => setGender("♀")}
+              />
             </>
           )}
         </div>
