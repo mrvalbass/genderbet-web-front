@@ -51,7 +51,7 @@ export default function FirstName() {
       }),
     };
     const response = await fetch(
-      "http://localhost:3000/users/updateFirstName",
+      "https://genderbet-back.vercel.app/users/updateFirstName",
       options
     ).then((r) => r.json());
     if (response.result) setMessage("✔");
@@ -79,7 +79,7 @@ export default function FirstName() {
             setNames={setGirlNames}
           />
           <button
-            className="mb-10 bg-[#ef7c51] rounded px-10 py-2 font-bold text-orange-100 text-xl active:scale-95 w-1/5"
+            className="mb-10 bg-[#ef7c51] rounded px-10 py-2 font-bold text-orange-100 text-xl active:scale-95 w-[200px]"
             onClick={saveNames}
           >
             {message}

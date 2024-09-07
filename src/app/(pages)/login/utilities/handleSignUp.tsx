@@ -18,7 +18,7 @@ export default async function handleSignUp(
   };
 
   const response = await fetch(
-    "http://localhost:3000/users/signUp",
+    "https://genderbet-back.vercel.app/users/signUp",
     options
   ).then((r) => r.json());
 

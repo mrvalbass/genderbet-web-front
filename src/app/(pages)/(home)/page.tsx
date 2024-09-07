@@ -7,6 +7,7 @@ import BirthListCard from "./components/BirthListCard";
 import Separator from "./components/Separator";
 import Header from "../../components/Header";
 import UserContext from "@/app/context/UserContext";
+import dayjs from "dayjs";
 
 export default function Home() {
   const router = useRouter();
@@ -57,7 +58,7 @@ export default function Home() {
             <MenuCard
               className="bg-dateBackground"
               href="/birthday"
-              prediction={""}
+              prediction={dayjs(user.predictions.birthDay).format("DD/MM/YYYY")}
             >
               Date
             </MenuCard>

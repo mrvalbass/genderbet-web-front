@@ -21,7 +21,7 @@ export default function Gender() {
         gender,
       }),
     };
-    await fetch("http://localhost:3000/users/updateGender", options);
+    await fetch("https://genderbet-back.vercel.app/users/updateGender", options);
   };
 
   return (

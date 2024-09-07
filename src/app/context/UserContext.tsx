@@ -1,5 +1,6 @@
 "use client";
 
+import dayjs, { Dayjs } from "dayjs";
 import { createContext, useEffect, useState } from "react";
 
 export interface FirstNameInterface {
@@ -10,7 +11,7 @@ export interface FirstNameInterface {
 export interface PredictionsInterface {
   gender: "♂" | "♀" | null;
   firstName: FirstNameInterface;
-  birthDay: Date;
+  birthDay: Dayjs;
 }
 
 export interface UserInterface {
@@ -41,7 +42,7 @@ const defaultUser = {
       boy: ["", "", ""],
       girl: ["", "", ""],
     },
-    birthDay: new Date(2024, 11, 26),
+    birthDay: dayjs(new Date(2024, 11, 26)),
   },
 };
 
@@ -68,9 +69,9 @@ export function UserContextProvider({ children }: UserContextProviderProps) {
     const getUserData = async () => {
       const token = localStorage.getItem("token");
       if (token) {
-        const data = await fetch(`http://localhost:3000/users/${token}`).then(
-          (r) => r.json()
-        );
+        const data = await fetch(
+          `https://genderbet-back.vercel.app/users/${token}`
+        ).then((r) => r.json());
         setUser(data.user);
       } else {
         setUser(defaultUser);
