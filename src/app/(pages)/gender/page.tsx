@@ -30,7 +30,7 @@ export default function Gender() {
   return (
     <>
       <Header back />
-      <main className="h-[90svh] bg-orange-100 flex flex-col items-center">
+      <main className="h-[90svh] bg-orange-100 flex flex-col items-center overflow-auto">
         <h1 className="text-4xl md:text-5xl font-[500] pt-10 font-BabyFont text-center">
           Fille ou Garçon ?
         </h1>

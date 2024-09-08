@@ -42,11 +42,12 @@ export default function FirstName() {
       body: JSON.stringify({
         token: user.token,
         boy: boyNames.map((name) => {
-          if (name) return name[0].toUpperCase() + name.slice(1).toLowerCase();
+          if (name)
+            return (name[0].toUpperCase() + name.slice(1).toLowerCase()).trim();
         }),
         girl: girlNames.map((name) => {
-          if (name) return name[0].toUpperCase() + name.slice(1).toLowerCase();
-          else return name;
+          if (name)
+            return (name[0].toUpperCase() + name.slice(1).toLowerCase()).trim();
         }),
       }),
     };
@@ -61,7 +62,7 @@ export default function FirstName() {
   return (
     <>
       <Header back />
-      <main className="h-[90svh] bg-orange-100 flex flex-col items-center">
+      <main className="h-[90svh] bg-orange-100 flex flex-col items-center overflow-auto">
         <h1 className="text-4xl md:text-5xl font-[500] pt-5 md:pt-10 font-BabyFont text-center mx-10 leading-relaxed">
           Timéo, Brigitte, Maurice, Loula ...
         </h1>

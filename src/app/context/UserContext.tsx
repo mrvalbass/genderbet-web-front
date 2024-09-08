@@ -1,6 +1,6 @@
 "use client";
 
-import dayjs, { Dayjs } from "dayjs";
+import { Dayjs } from "dayjs";
 import { createContext, useEffect, useState } from "react";
 
 export interface FirstNameInterface {

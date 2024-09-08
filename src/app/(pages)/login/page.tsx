@@ -9,7 +9,7 @@ export default function Login() {
   useGSAP(animation);
 
   return (
-    <main className="bg-orange-100 flex h-[100svh] flex-col items-center justify-center">
+    <main className="bg-orange-100 flex h-[100svh] flex-col items-center justify-center overflow-auto">
       <h1 className="font-BabyFont font-[500] text-4xl md:text-5xl">
         Notre P'tit Bébé
       </h1>
