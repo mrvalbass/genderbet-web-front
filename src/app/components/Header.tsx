@@ -24,7 +24,8 @@ export default function Header({ back }: HeaderProps) {
         />
       )}
       <p>Notre P'tit Bébé</p>
-      {user.email === ("vvm.guillot@gmail.com" || "victoire2704@gmail.com") &&
+      {(user.email === "vvm.guillot@gmail.com" ||
+        user.email === "victoire2704@gmail.com") &&
         pathname === "/" && (
           <FontAwesomeIcon
             icon={faTable}
