@@ -42,10 +42,11 @@ export default function Dashboard() {
   return (
     <>
       <Header back />
-      <main className="h-[90svh] bg-orange-100 flex flex-col items-center p-10 overflow-auto">
+      <main className="h-[90svh] max-w-full bg-orange-100 flex items-center p-5 overflow-auto">
         <DataGrid
           rows={rows}
           columns={columns}
+          rowHeight={30}
           sx={{
             ".MuiDataGrid-columnHeader": {
               backgroundColor: "#ef7c51",
@@ -53,6 +54,7 @@ export default function Dashboard() {
               color: "#ffedd5",
             },
             ".MuiDataGrid-columnHeaders": { backgroundColor: "#000" },
+            ".MuiDataGrid-cell": { fontSize: 14 },
           }}
         />
       </main>
